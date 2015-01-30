@@ -1,0 +1,5 @@
+name = Multisite list
+description = Provide site list for Drupal multisite install
+package = Multisite
+core = 7.x
+configure = admin/config/multisite-list

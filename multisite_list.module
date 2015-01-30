@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Multisite list module,
+ * hooks implementations.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function multisite_list_permission() {
+  return array(
+    'administer multisite list' => array(
+      'title' => t('Administer multisite list'),
+      'description' => t('Choose which sites appear or not in multisite list, and other stuff.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function multisite_list_menu() {
+  return array(
+    'admin/config/multisite-list' => array(
+      'title' => 'Multisite list configuration',
+      'description' => 'Choose which site to display in multisite list, and how new sites should be consider by default.',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('multisite_list_admin_form'),
+      'access arguments' => array('administer multisite list'),
+      'file' => 'multisite_list.forms.inc',
+    )
+  );
+}
